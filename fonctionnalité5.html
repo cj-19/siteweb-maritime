@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction - Navigation Maritime AIS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonctionnalite5.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-isen">ISEN</div>
+                <div class="header-title">
+                    <i class="fas fa-ship"></i>
+                     BoatTracker AI
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="fonctionnalite2.html"><i class="fas fa-plus"></i> Ajouter</a></li>
+                    <li><a href="fonctionnalité3.html"><i class="fas fa-table"></i> Visualiser</a></li>
+                    <li><a href="fonctionnalité4.html"><i class="fas fa-project-diagram"></i> Clusters</a></li>
+                    <li><a href="fonctionnalité5.html" class="active"><i class="fas fa-brain"></i> Prédiction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Section de sélection -->
+            <section class="prediction-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-brain"></i> Prédiction Intelligente</h2>
+                    <p class="section-description">
+                        Sélectionnez un bateau dans le tableau ci-dessous et choisissez le type de prédiction à effectuer
+                    </p>
+                </div>
+
+                <!-- Contrôles de prédiction -->
+                <div class="prediction-controls">
+                    <div class="prediction-buttons">
+                        <button id="predict-type-btn" class="prediction-btn" disabled>
+                            <i class="fas fa-tags"></i>
+                            Prédire le Type
+                        </button>
+                        <button id="predict-trajectory-btn" class="prediction-btn" disabled>
+                            <i class="fas fa-route"></i>
+                            Prédire la Trajectoire
+                        </button>
+                    </div>
+                    
+                    <div class="selection-info">
+                        <div class="info-card" id="selection-status">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Sélectionnez un bateau pour activer les prédictions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau des bateaux -->
+                <div class="ships-table-container">
+                    <div class="table-header">
+                        <h3><i class="fas fa-list"></i> Liste des Bateaux</h3>
+                        <div class="table-actions">
+                            <button id="refresh-btn" class="action-btn">
+                                <i class="fas fa-sync-alt"></i>
+                                Actualiser
+                            </button>
+                            <div class="search-container">
+                                <input type="text" id="search-input" placeholder="Rechercher un bateau...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="ships-table" class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th class="select-col">
+                                        <input type="radio" name="ship-select" id="select-all" disabled>
+                                    </th>
+                                    <th data-sort="mmsi">
+                                        MMSI <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="timestamp">
+                                        Horodatage <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="latitude">
+                                        Latitude <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="longitude">
+                                        Longitude <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="sog">
+                                        SOG <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="cog">
+                                        COG <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="name">
+                                        Nom <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="status">
+                                        État <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="length">
+                                        Longueur <i class="fas fa-sort"></i>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="ships-tbody">
+                                <!-- Les données seront chargées via AJAX -->
+                                <tr class="loading-row">
+                                    <td colspan="10">
+                                        <div class="loading-container">
+                                            <div class="loading-spinner"></div>
+                                            <span>Chargement des données...</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-pagination">
+                        <div class="pagination-info">
+                            <span id="pagination-text">Affichage de 0 à 0 sur 0 entrées</span>
+                        </div>
+                        <div class="pagination-controls">
+                            <button id="prev-page" class="page-btn" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div id="page-numbers" class="page-numbers">
+                                <!-- Pages générées dynamiquement -->
+                            </div>
+                            <button id="next-page" class="page-btn" disabled>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Détails du bateau sélectionné -->
+                <div class="selected-ship-details" id="ship-details" style="display: none;">
+                    <div class="details-header">
+                        <h3><i class="fas fa-ship"></i> Détails du Bateau Sélectionné</h3>
+                        <button id="clear-selection" class="clear-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <label>MMSI:</label>
+                            <span id="detail-mmsi">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Nom:</label>
+                            <span id="detail-name">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Position:</label>
+                            <span id="detail-position">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Vitesse:</label>
+                            <span id="detail-speed">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Cap:</label>
+                            <span id="detail-course">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>État:</label>
+                            <span id="detail-status">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 ISEN - Projet Navigation Maritime AIS</p>
+            <p class="footer-subtitle">Analyse et Modélisation des Comportements de Navigation</p>
+        </div>
+    </footer>
+
+    <!-- Modal de chargement -->
+    <div id="loading-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="loading-content">
+                <div class="loading-spinner-large"></div>
+                <h3>Prédiction en cours...</h3>
+                <p id="loading-text">Analyse des données du bateau en cours</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/predict_type.js"></script>
+</body>
+</html>

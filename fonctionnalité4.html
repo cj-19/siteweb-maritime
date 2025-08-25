@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoatTracker AI - Prédire les clusters</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/css/fonctionnalité4.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    
+</head>
+<body>
+    <!-- Header moderne -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-isen">ISEN</div>
+                <h1 class="header-title">
+                    <i class="fas fa-ship"></i>
+                    BoatTracker AI
+                </h1>
+             </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="fonctionnalite2.html"><i class="fas fa-plus"></i> Ajouter</a></li>
+                    <li><a href="fonctionnalité3.html"><i class="fas fa-table"></i> Visualiser</a></li>
+                    <li><a href="fonctionnalité4.html"  class="active"><i class="fas fa-project-diagram"></i> Clusters</a></li>
+                    <li><a href="fonctionnalité5.html" ><i class="fas fa-brain"></i> Prédiction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Prédire les clusters</h1>
+
+        <div class="map-section">
+            <h2 class="section-title">Visualisation des clusters</h2>
+            <div id="map" style="height: 400px;"></div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot cluster1"></div>
+                    <span>Cluster 1 - Navigation commerciale</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot cluster2"></div>
+                    <span>Cluster 2 - Pêche</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot cluster3"></div>
+                    <span>Cluster 3 - Plaisance</span>
+                </div>
+            </div>
+
+            <div class="cluster-stats hidden" id="clusterStats">
+                <!-- Cluster 1 -->
+                <div class="cluster-card cluster1">
+                    <div class="cluster-header">
+                        <div class="cluster-dot-large" style="background-color: #3498db;"></div>
+                        <div class="cluster-name">Cluster 1</div>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Bateaux:</span>
+                        <span class="cluster-value">98</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Vitesse moy:</span>
+                        <span class="cluster-value">12.5 kn</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Zone:</span>
+                        <span class="cluster-value">Côtière</span>
+                    </div>
+                </div>
+
+                <!-- Cluster 2 -->
+                <div class="cluster-card cluster2">
+                    <div class="cluster-header">
+                        <div class="cluster-dot-large" style="background-color: #2ecc71;"></div>
+                        <div class="cluster-name">Cluster 2</div>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Bateaux:</span>
+                        <span class="cluster-value">87</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Vitesse moy:</span>
+                        <span class="cluster-value">6.2 kn</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Zone:</span>
+                        <span class="cluster-value">Hauturière</span>
+                    </div>
+                </div>
+
+                <!-- Cluster 3 -->
+                <div class="cluster-card cluster3">
+                    <div class="cluster-header">
+                        <div class="cluster-dot-large" style="background-color: #e74c3c;"></div>
+                        <div class="cluster-name">Cluster 3</div>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Bateaux:</span>
+                        <span class="cluster-value">60</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Vitesse moy:</span>
+                        <span class="cluster-value">8.7 kn</span>
+                    </div>
+                    <div class="cluster-detail">
+                        <span class="cluster-label">Zone:</span>
+                        <span class="cluster-value">Portuaire</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p><i class="fas fa-copyright"></i> 2025 ISEN All Digital - Mentions légales</p>
+            <p class="footer-subtitle">
+                Suivi maritime intelligent • Technologie française • Innovation durable
+            </p>
+        </div>
+    </footer>
+
+    <!-- Inclusion du script externe -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/fonctionnalité4.js"></script>
+
+</body>
+</html>

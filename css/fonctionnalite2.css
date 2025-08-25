@@ -1,0 +1,229 @@
+/* Import variables from style.css if not already imported via main style.css link */
+/* :root {
+    --bleu-marine: #1A2A44;
+    --blanc-casse: #F5F6F5;
+    --bleu-clair: #A3BFFA;
+    --rouge-isen: #D32F2F;
+    --rouge-attenue: #EF5350;
+    --gris-argent: #B0BEC5;
+} */
+
+/* Ensure body background is consistent with index.html if needed for content area */
+body {
+    background: var(--blanc-casse); /* Or whatever you want for the page background */
+    color: var(--bleu-marine);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Specific styles for the form page */
+.main-content {
+    padding-top: 80px; /* Adjust based on your fixed header height */
+    padding-bottom: 4rem; /* Consistent padding with index.html sections */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px); /* Adjust to push footer down */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.form-section {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin-top: 3rem; /* Add margin-top for spacing below header */
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 40px rgba(26, 42, 68, 0.1);
+    border: 1px solid rgba(176, 190, 197, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ensure it takes full width of container */
+    max-width: 900px; /* Adjust max-width for better form layout */
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--rouge-isen), var(--bleu-clair));
+}
+
+.form-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--rouge-isen);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.form-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--bleu-clair);
+    border-radius: 2px;
+}
+
+/* Form grid for two columns */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 1.5rem 2rem; /* Row gap and column gap */
+}
+
+/* Single column for smaller screens */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--bleu-marine);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, select {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--gris-argent); /* Use existing color variable */
+    border-radius: 8px; /* Slightly less rounded than 10px in original */
+    background: var(--blanc-casse); /* Use existing color variable */
+    transition: all 0.3s ease;
+    outline: none;
+    color: var(--bleu-marine);
+}
+
+input:focus, select:focus {
+    border-color: var(--rouge-isen); /* Focus color from style.css */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2); /* Shadow using rouge-isen */
+    background: white;
+}
+
+input::placeholder {
+    color: var(--gris-argent); /* Placeholder color from style.css */
+    opacity: 0.8;
+}
+
+/* Adjust datetime-local placeholder */
+.form-group .placeholder-date {
+    display: none; /* Hide by default, rely on native placeholder */
+}
+
+input[type="datetime-local"] {
+    color: var(--bleu-marine);
+}
+/* For browsers that don't fully style native datetime-local placeholder, you might need JS */
+/* For example, to set custom placeholder: */
+/* input[type="datetime-local"]:not(:valid)::before {
+    content: attr(placeholder);
+    color: var(--gris-argent);
+} */
+
+
+select {
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%231A2A44"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25rem;
+}
+
+.submit-btn {
+    grid-column: 1 / -1; /* Make button span full width in the grid */
+    background: var(--rouge-isen); /* Use existing color variable */
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem; /* More margin from fields */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.2);
+}
+
+.submit-btn:hover {
+    background: var(--rouge-attenue); /* Use existing color variable for hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+#response-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    display: none;
+}
+
+#response-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+#response-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Responsive adjustments for the form */
+@media (max-width: 768px) {
+    .form-section {
+        padding: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-grid {
+        gap: 1rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 1.5rem;
+    }
+}
