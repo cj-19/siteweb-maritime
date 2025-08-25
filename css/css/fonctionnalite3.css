@@ -1,0 +1,381 @@
+/* Variables CSS selon la charte graphique ISEN */
+:root {
+    --bleu-marine: #1A2A44;
+    --blanc-casse: #F5F6F5;
+    --bleu-clair: #A3BFFA;
+    --rouge-isen: #D32F2F;
+    --rouge-attenue: #EF5350;
+    --gris-argent: #B0BEC5;
+}
+
+/* Reset et styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: var(--bleu-marine);
+    background: linear-gradient(135deg, var(--bleu-clair) 0%, #E8F2FF 100%);
+    min-height: 100vh;
+}
+
+/* Header moderne 
+.main-header {
+    background: var(--bleu-marine);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(26, 42, 68, 0.3);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-isen {
+    width: 50px;
+    height: 50px;
+    background: var(--rouge-isen);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+.header-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+*/
+/* Navigation moderne */
+.main-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: rgb(27, 7, 7);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.nav-list a:hover {
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.nav-list a.active {
+    background: var(--rouge-isen);
+    color: white;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+/* ✅ NOUVEAU : Style spécial pour le lien "Visualiser" */
+.nav-list a.visualiser-link {
+    background: var(--rouge-isen);
+    color: white !important;
+    opacity: 1;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+    font-weight: 600;
+}
+
+.nav-list a.visualiser-link:hover {
+    background: var(--rouge-attenue);
+    color: white !important;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ✅ ALTERNATIVE : Si vous voulez cibler par le texte uniquement */
+.nav-list a[href*="visualiser"],
+.nav-list a[href*="visualization"] {
+    background: var(--rouge-isen);
+    color: white !important;
+    opacity: 1;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+    font-weight: 600;
+}
+
+.nav-list a[href*="visualiser"]:hover,
+.nav-list a[href*="visualization"]:hover {
+    background: var(--rouge-attenue);
+    color: white !important;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-title h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--rouge-isen);
+    margin-bottom: 0.5rem;
+}
+
+.page-title p {
+    color: var(--bleu-marine);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.visualization-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    height: calc(100vh - 200px);
+}
+
+.data-section, .map-section {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(26, 42, 68, 0.1);
+    border: 1px solid rgba(176, 190, 197, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--bleu-clair);
+}
+
+.section-header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--bleu-marine);
+}
+
+.boats-table-container {
+    flex: 1;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(176, 190, 197, 0.3);
+}
+
+.boats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.boats-table thead {
+    background: var(--bleu-marine);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.boats-table th {
+    padding: 0.8rem 0.6rem;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.boats-table td {
+    padding: 0.8rem 0.6rem;
+    border-bottom: 1px solid rgba(176, 190, 197, 0.2);
+    border-right: 1px solid rgba(176, 190, 197, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.boats-table tbody tr {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.boats-table tbody tr:hover {
+    background: rgba(163, 191, 250, 0.1);
+    transform: scale(1.01);
+}
+
+.boat-name {
+    font-weight: 600;
+    color: var(--rouge-isen);
+}
+
+.mmsi, .coordinate {
+    font-family: 'Roboto', monospace;
+}
+
+.speed, .cap {
+    font-weight: 600;
+    color: var(--rouge-isen);
+}
+
+.map-container {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--bleu-clair);
+    position: relative;
+}
+
+#boat-map {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 0.8rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.legend-color.cargo { background: var(--rouge-isen); }
+.legend-color.fishing { background: #FF9800; }
+.legend-color.passenger { background: #4CAF50; }
+.legend-color.other { background: var(--bleu-marine); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .visualization-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        height: auto;
+    }
+
+    .boats-table-container {
+        max-height: 400px;
+    }
+
+    #boat-map {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .boats-table {
+        font-size: 0.75rem;
+    }
+
+    .boats-table th,
+    .boats-table td {
+        padding: 0.5rem 0.3rem;
+    }
+
+    .page-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .data-section,
+    .map-section {
+        padding: 1rem;
+    }
+}
+
+/* ✅ Ajout du bouton "Prédire les clusters" */
+.clusters-button-zone {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-clusters {
+    background-color: var(--rouge-isen);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.2);
+}
+
+.btn-clusters:hover {
+    background-color: var(--rouge-attenue);
+    transform: scale(1.05);
+}

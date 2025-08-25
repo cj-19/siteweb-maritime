@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de Prédiction - Navigation Maritime AIS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/results.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-isen">ISEN</div>
+                <div class="header-title">
+                    <i class="fas fa-ship"></i>
+                     BoatTracker AI
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="fonctionnalite2.html"><i class="fas fa-plus"></i> Ajouter</a></li>
+                    <li><a href="fonctionnalité3.html"><i class="fas fa-table"></i> Visualiser</a></li>
+                    <li><a href="fonctionnalité4.html"><i class="fas fa-project-diagram"></i> Clusters</a></li>
+                    <li><a href="fonctionnalité5.html"><i class="fas fa-brain"></i> Prédiction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- En-tête des résultats -->
+            <section class="results-header">
+                <div class="header-actions">
+                    <button onclick="history.back()" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Retour
+                    </button>
+                    <button onclick="window.print()" class="print-btn">
+                        <i class="fas fa-print"></i>
+                        Imprimer
+                    </button>
+                </div>
+                <div class="results-title">
+                    <h1><i class="fas fa-chart-line"></i> Résultats de Prédiction</h1>
+                    <p id="prediction-subtitle">Analyse complète du bateau sélectionné</p>
+                </div>
+            </section>
+
+            <!-- Informations du bateau -->
+            <section class="ship-info-section">
+                <div class="info-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-ship"></i> Informations du Bateau</h2>
+                        <span class="timestamp" id="analysis-timestamp"></span>
+                    </div>
+                    <div class="ship-details-grid">
+                        <div class="detail-row">
+                            <span class="label">MMSI:</span>
+                            <span class="value" id="ship-mmsi">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Nom:</span>
+                            <span class="value" id="ship-name">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Position:</span>
+                            <span class="value" id="ship-position">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Dernière vitesse:</span>
+                            <span class="value" id="ship-speed">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Dernier cap:</span>
+                            <span class="value" id="ship-course">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">État:</span>
+                            <span class="value" id="ship-status">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Résultats de prédiction -->
+            <section id="prediction-results" class="prediction-results">
+                <!-- Le contenu sera généré dynamiquement -->
+            </section>
+
+            <!-- Actions -->
+            <section class="results-actions">
+                <button onclick="location.href='fonctionnalité5.html'" class="action-btn primary">
+                    <i class="fas fa-brain"></i>
+                    Nouvelle Prédiction
+                </button>
+                <button onclick="downloadResults()" class="action-btn secondary">
+                    <i class="fas fa-download"></i>
+                    Télécharger PDF
+                </button>
+                <button onclick="shareResults()" class="action-btn secondary">
+                    <i class="fas fa-share-alt"></i>
+                    Partager
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 ISEN - Projet Navigation Maritime AIS</p>
+            <p class="footer-subtitle">Analyse et Modélisation des Comportements de Navigation</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/results.js"></script>
+    <script src="js/ship_classifier.js"></script>
+</body>
+</html>

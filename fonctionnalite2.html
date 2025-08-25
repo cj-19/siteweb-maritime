@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BoatTracker AI - Ajouter un bateau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/fonctionnalite2.css"> </head>
+<body>
+   <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-isen">ISEN</div>
+                <div class="header-title">
+                    <i class="fas fa-ship"></i>
+                     BoatTracker AI
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="fonctionnalite2.html" class="active"><i class="fas fa-plus"></i> Ajouter</a></li>
+                    <li><a href="fonctionnalité3.html"><i class="fas fa-table"></i> Visualiser</a></li>
+                    <li><a href="fonctionnalité4.html"><i class="fas fa-project-diagram"></i> Clusters</a></li>
+                    <li><a href="fonctionnalité5.html" ><i class="fas fa-brain"></i> Prédiction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content"> <div class="container"> <div class="form-section section"> <h2>Ajouter un bateau</h2>
+                <form id="ajout-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="mmsi">MMSI</label>
+                            <input type="text" id="mmsi" name="mmsi" placeholder="Entrez le MMSI" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="horodatage">Horodatage</label>
+                            <input type="datetime-local" id="horodatage" name="horodatage" required />
+                            <span class="placeholder-date">jj/mm/aaaa --:--</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="text" id="latitude" name="latitude" placeholder="Ex: 48.8666" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" id="longitude" name="longitude" placeholder="Ex: 2.3522" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sog">Vitesse (SOG)</label>
+                            <input type="text" id="sog" name="sog" placeholder="Vitesse en nœuds" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cap_reel">Cap (COG/réel)</label>
+                            <input type="text" id="cap_reel" name="cap_reel" placeholder="Cap en degrés" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" placeholder="Nom du bateau" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="etat-select">État</label>
+                            <select name="etat" required id="etat-select">
+                                <option value="">Sélectionner un état</option>
+                                <option value="amare">Amarré</option>
+                                <option value="en_mer">En mer</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="longueur">Longueur</label>
+                            <input type="text" id="longueur" name="longueur" placeholder="Longueur du bateau" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="largeur">Largeur</label>
+                            <input type="text" id="largeur" name="largeur" placeholder="Largeur du bateau" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tirant_eau">Tirant d'eau</label>
+                            <input type="text" id="tirant_eau" name="tirant_eau" placeholder="Tirant d'eau du bateau" required />
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Ajouter un bateau</button>
+                </form>
+                <div id="response-message"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p><i class="fas fa-copyright"></i> 2025 ISEN All Digital - Mentions légales</p>
+            <p class="footer-subtitle">
+                Suivi maritime intelligent • Technologie française • Innovation durable
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/fonctionnalite2.js"></script>
+    </body>
+</html>
